@@ -1,0 +1,19 @@
+.mode-placeholder {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.mode-placeholder-title {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-indigo-deep);
+}
+
+.mode-placeholder-text {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-ink);
+  opacity: 0.8;
+}
+
+.mode-placeholder-btn {
+  margin-top: var(--spacing-lg);
+}

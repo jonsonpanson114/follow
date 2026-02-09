@@ -1,0 +1,20 @@
+.mobile-layout {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacing-md) 0;
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 var(--spacing-sm);
+}
+
+@media (max-width: 480px) {
+  .mobile-layout {
+    padding: var(--spacing-sm) 0;
+  }
+}

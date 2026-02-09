@@ -1,0 +1,49 @@
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  border-radius: var(--radius-lg);
+  /* Match card radius */
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(100, 255, 218, 0.15);
+  /* Teal ripple */
+  transform: scale(0);
+  animation: ripple 0.8s ease-out;
+  pointer-events: none;
+}
+
+.ripple-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 77, 255, 0.8), rgba(124, 77, 255, 0));
+  /* Violet particles */
+  animation: ripple-particles 0.8s ease-out forwards;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(124, 77, 255, 0.8));
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-particles {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}

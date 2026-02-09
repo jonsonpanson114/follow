@@ -1,0 +1,151 @@
+/* Ripple - Serene Luxury Design System */
+
+:root {
+  /* Color Palette - Washi & Indigo */
+  --color-washi: #F9F9F7;
+  --color-indigo-deep: #1A237E;
+  --color-indigo-light: #3949AB;
+  --color-gold: #D4AF37;
+  --color-ink: #2C2C2C;
+  --color-mist: rgba(255, 255, 255, 0.7);
+  --color-shadow: rgba(26, 35, 126, 0.1);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(26, 35, 126, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+  /* Typography */
+  --font-serif: "Noto Serif JP", "Yu Mincho", "YuMincho", "游明朝", "Hiragino Mincho ProN", serif;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "ヒラギノ角ゴ ProN", sans-serif;
+
+  /* Spacing - Luxurious breathing room */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --transition-fluid: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-quick: all 0.3s ease;
+
+  /* Z-index layers */
+  --z-background: 0;
+  --z-content: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-serif);
+  color: var(--color-indigo-deep);
+  background-color: var(--color-washi);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Washi Texture Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-background);
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      var(--color-indigo-deep) 2px,
+      var(--color-indigo-deep) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      var(--color-indigo-deep) 2px,
+      var(--color-indigo-deep) 4px
+    );
+  pointer-events: none;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+  color: var(--color-indigo-deep);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-washi);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-indigo-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-indigo-deep);
+}
