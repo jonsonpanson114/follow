@@ -42,3 +42,4 @@ python_backend/token.json
 nul
 
 .gemini/
+.vercel
