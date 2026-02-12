@@ -1,0 +1,178 @@
+
+Name  : ALLUSERSPROFILE
+Value : C:\ProgramData
+
+Name  : ANTIGRAVITY_AGENT
+Value : 1
+
+Name  : ANTIGRAVITY_CLI_ALIAS
+Value : agy
+
+Name  : APPDATA
+Value : C:\Users\jonso\AppData\Roaming
+
+Name  : CHROME_CRASHPAD_PIPE_NAME
+Value : \\.\pipe\crashpad_77172_RSIOWTASJZPKMYZO
+
+Name  : CLAUDE_CODE_SSE_PORT
+Value : 27455
+
+Name  : COLORTERM
+Value : truecolor
+
+Name  : CommonProgramFiles
+Value : C:\Program Files\Common Files
+
+Name  : CommonProgramFiles(x86)
+Value : C:\Program Files (x86)\Common Files
+
+Name  : CommonProgramW6432
+Value : C:\Program Files\Common Files
+
+Name  : COMPUTERNAME
+Value : レノン
+
+Name  : ComSpec
+Value : C:\Windows\system32\cmd.exe
+
+Name  : DriverData
+Value : C:\Windows\System32\Drivers\DriverData
+
+Name  : EFC_10580_1592913036
+Value : 1
+
+Name  : GIT_ASKPASS
+Value : c:\Users\jonso\AppData\Local\Programs\Antigravity\resources\app\extensions\git\dist\askpass.sh
+
+Name  : HOME
+Value : C:\Users\jonso
+
+Name  : HOMEDRIVE
+Value : C:
+
+Name  : HOMEPATH
+Value : \Users\jonso
+
+Name  : LANG
+Value : ja_JP.UTF-8
+
+Name  : LOCALAPPDATA
+Value : C:\Users\jonso\AppData\Local
+
+Name  : LOGONSERVER
+Value : \\レノン
+
+Name  : NUMBER_OF_PROCESSORS
+Value : 16
+
+Name  : OneDrive
+Value : C:\Users\jonso\OneDrive
+
+Name  : OneDriveConsumer
+Value : C:\Users\jonso\OneDrive
+
+Name  : OS
+Value : Windows_NT
+
+Name  : PAGER
+Value : cat
+
+Name  : Path
+Value : C:\Program Files\PowerShell\7;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\PowerShell\7\;C:\Users\jonso\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\jonso\AppData\Local\Programs\Python\Python312\;C:\Users\jonso\AppData\Local\Programs\Python\Launcher\;C:\Users\jonso\AppData\Local\Microsoft\WindowsApps;C:\Users\jonso\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jonso\AppData\Local\Programs\Antigravity\bin;C:\Users\jonso\AppData\Roaming\npm;C:\Users\jonso\AppData\Local\GitHubDesktop\bin
+
+Name  : PATHEXT
+Value : .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+
+Name  : POWERSHELL_DISTRIBUTION_CHANNEL
+Value : MSI:Windows 10 Home
+
+Name  : PROCESSOR_ARCHITECTURE
+Value : AMD64
+
+Name  : PROCESSOR_IDENTIFIER
+Value : AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD
+
+Name  : PROCESSOR_LEVEL
+Value : 25
+
+Name  : PROCESSOR_REVISION
+Value : 4401
+
+Name  : ProgramData
+Value : C:\ProgramData
+
+Name  : ProgramFiles
+Value : C:\Program Files
+
+Name  : ProgramFiles(x86)
+Value : C:\Program Files (x86)
+
+Name  : ProgramW6432
+Value : C:\Program Files
+
+Name  : PSModulePath
+Value : C:\Users\jonso\OneDrive\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\powershell\7\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+
+Name  : PUBLIC
+Value : C:\Users\Public
+
+Name  : PYTHON_BASIC_REPL
+Value : 1
+
+Name  : PYTHONSTARTUP
+Value : c:\Users\jonso\AppData\Roaming\Antigravity\User\workspaceStorage\5956a86558e4216e246e906b6c25376b\ms-python.python\pythonrc.py
+
+Name  : SESSIONNAME
+Value : Console
+
+Name  : SystemDrive
+Value : C:
+
+Name  : SystemRoot
+Value : C:\Windows
+
+Name  : TEMP
+Value : C:\Users\jonso\AppData\Local\Temp
+
+Name  : TERM_PROGRAM
+Value : vscode
+
+Name  : TERM_PROGRAM_VERSION
+Value : 1.107.0
+
+Name  : TMP
+Value : C:\Users\jonso\AppData\Local\Temp
+
+Name  : USERDOMAIN
+Value : レノン
+
+Name  : USERDOMAIN_ROAMINGPROFILE
+Value : レノン
+
+Name  : USERNAME
+Value : jonso
+
+Name  : USERPROFILE
+Value : C:\Users\jonso
+
+Name  : VSCODE_GIT_ASKPASS_EXTRA_ARGS
+Value : 
+
+Name  : VSCODE_GIT_ASKPASS_MAIN
+Value : c:\Users\jonso\AppData\Local\Programs\Antigravity\resources\app\extensions\git\dist\askpass-main.js
+
+Name  : VSCODE_GIT_ASKPASS_NODE
+Value : C:\Users\jonso\AppData\Local\Programs\Antigravity\Antigravity.exe
+
+Name  : VSCODE_GIT_IPC_HANDLE
+Value : \\.\pipe\vscode-git-25f2f1f13a-sock
+
+Name  : VSCODE_INJECTION
+Value : 1
+
+Name  : VSCODE_PYTHON_AUTOACTIVATE_GUARD
+Value : 1
+
+Name  : windir
+Value : C:\Windows
+
