@@ -1,3 +1,5 @@
+import { GoogleGenAI } from '@google/genai';
+
 // Model configurations
 export const MODELS = {
   PRO: 'gemini-2.5-flash',
@@ -5,10 +7,19 @@ export const MODELS = {
 } as const;
 
 // Create a unified interface that matches the existing GoogleGenAI usage
-// but routes requests through our backend proxy instead of calling Google directly
 export const ai = {
   models: {
     generateContent: async ({ model, contents }: { model: string; contents: string | any[] }) => {
+      // 1. ローカル開発環境の場合は直接APIを叩く (Viteサーバーのみで完結させるため)
+      const localApiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (import.meta.env.DEV && localApiKey) {
+        console.log('[Dev Mode] Calling Gemini API directly');
+        const localAi = new GoogleGenAI({ apiKey: localApiKey });
+        const response = await localAi.models.generateContent({ model, contents });
+        return { text: response.text };
+      }
+
+      // 2. 本番環境（Vercel等）の場合は秘匿化されたバックエンドAPIを叩く
       try {
         const response = await fetch('/api/chat', {
           method: 'POST',
