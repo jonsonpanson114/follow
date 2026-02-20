@@ -1,54 +1,51 @@
 import { GoogleGenAI } from '@google/genai';
 
-export const config = {
-    runtime: 'edge', // Vercel Edge Runtime for faster performance
-};
+// Vercel Serverless Function (Node.js runtime)
+export default async function handler(req: any, res: any) {
+    // CORS Preflight behavior (if needed for testing origin)
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
 
-export default async function handler(req: Request) {
+    // Only allow POST
     if (req.method !== 'POST') {
-        return new Response('Method Not Allowed', { status: 405 });
+        return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
     try {
-        const { model, contents } = await req.json();
+        const { model, contents } = req.body;
 
         if (!model || !contents) {
-            return new Response(JSON.stringify({ error: 'Missing model or contents' }), {
-                status: 400,
-                headers: { 'Content-Type': 'application/json' },
-            });
+            return res.status(400).json({ error: 'Missing model or contents' });
         }
 
-        const apiKey = process.env.GEMINI_API_KEY;
+        const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
         if (!apiKey) {
-            console.error('API key is missing on the server');
-            return new Response(JSON.stringify({ error: 'Server Configuration Error' }), {
-                status: 500,
-                headers: { 'Content-Type': 'application/json' },
-            });
+            console.error('SERVER ERROR: API Key is not set in Vercel Environment Variables');
+            return res.status(500).json({ error: 'Server Configuration Error: Missing API Key' });
         }
 
+        // Initialize the Gemini client
         const ai = new GoogleGenAI({ apiKey });
 
-        // Call Gemini API securely from the backend
+        console.log(`[Backend API] Received request for model: ${model}`);
+
+        // Call Gemini API
         const response = await ai.models.generateContent({
             model,
             contents,
         });
 
-        return new Response(JSON.stringify({ text: response.text }), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' },
-        });
+        console.log(`[Backend API] Successfully generated response.`);
+
+        // Return the response as JSON
+        return res.status(200).json({ text: response.text });
 
     } catch (error: any) {
-        console.error('Error in /api/chat:', error);
-        return new Response(
-            JSON.stringify({ error: 'Failed to generate content', details: error.message }),
-            {
-                status: 500,
-                headers: { 'Content-Type': 'application/json' },
-            }
-        );
+        console.error('[Backend API] Error generating content:', error);
+        return res.status(500).json({
+            error: 'Failed to generate content',
+            details: error.message
+        });
     }
 }
