@@ -1,7 +1,0 @@
-export default async function handler(req: any, res: any) {
-    return res.status(200).json({
-        message: 'Minimal backend reachable',
-        method: req.method,
-        url: req.url
-    });
-}
