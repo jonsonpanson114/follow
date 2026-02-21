@@ -2,12 +2,17 @@ import { GoogleGenAI } from '@google/genai';
 
 // Vercel Serverless Function (Node.js runtime)
 export default async function handler(req: any, res: any) {
+    // Debug accessibility
+    if (req.method === 'GET') {
+        return res.status(200).json({ message: 'Backend API is reachable via GET', mode: process.env.NODE_ENV });
+    }
+
     // CORS Preflight behavior (if needed for testing origin)
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
-    // Only allow POST
+    // Only allow POST (and GET for debug)
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
