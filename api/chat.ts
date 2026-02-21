@@ -13,7 +13,7 @@ export default async function handler(req: any, res: any) {
     }
 
     try {
-        const { model, contents } = req.body;
+        const { model, contents, config, ...rest } = req.body;
 
         if (!model || !contents) {
             return res.status(400).json({ error: 'Missing model or contents' });
@@ -34,6 +34,8 @@ export default async function handler(req: any, res: any) {
         const response = await ai.models.generateContent({
             model,
             contents,
+            ...(config ? { config } : {}),
+            ...rest
         });
 
         console.log(`[Backend API] Successfully generated response.`);

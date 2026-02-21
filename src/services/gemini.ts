@@ -9,13 +9,14 @@ export const MODELS = {
 // Create a unified interface that matches the existing GoogleGenAI usage
 export const ai = {
   models: {
-    generateContent: async ({ model, contents }: { model: string; contents: string | any[] }) => {
+    generateContent: async (params: { model: string; contents: string | any[]; config?: any;[key: string]: any }) => {
+
       // 1. ローカル開発環境の場合は直接APIを叩く (Viteサーバーのみで完結させるため)
       const localApiKey = import.meta.env.VITE_GEMINI_API_KEY;
       if (import.meta.env.DEV && localApiKey) {
         console.log('[Dev Mode] Calling Gemini API directly');
         const localAi = new GoogleGenAI({ apiKey: localApiKey });
-        const response = await localAi.models.generateContent({ model, contents });
+        const response = await localAi.models.generateContent(params);
         return { text: response.text };
       }
 
@@ -26,7 +27,7 @@ export const ai = {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ model, contents }),
+          body: JSON.stringify(params),
         });
 
         if (!response.ok) {
