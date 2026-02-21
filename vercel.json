@@ -1,21 +1,8 @@
 {
-    "builds": [
-        {
-            "src": "api/chat.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
-        }
-    ],
     "rewrites": [
         {
             "source": "/api/chat",
-            "destination": "api/chat.js"
+            "destination": "/api/chat"
         },
         {
             "source": "/(.*)",
