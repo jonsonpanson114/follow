@@ -22,6 +22,7 @@ export const ai = {
 
       // 2. 本番環境（Vercel等）の場合は秘匿化されたバックエンドAPIを叩く
       try {
+        console.log('[Prod Mode] Calling backend API at /api/chat');
         const response = await fetch('/api/chat', {
           method: 'POST',
           headers: {
@@ -31,13 +32,20 @@ export const ai = {
         });
 
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.error || `HTTP Error: ${response.status}`);
+          const errorText = await response.text();
+          console.error('[Backend Error]', response.status, errorText);
+
+          // もし405エラー（ルーティング失敗）なら、Vercelの設定ミスである旨をコンソールに表示
+          if (response.status === 405) {
+            throw new Error('本番環境のAPI設定（Vercel Functions）が有効になっていません。Vercelのデプロイログを確認してください。');
+          }
+
+          throw new Error(`API Error: ${response.status}`);
         }
 
         const data = await response.json();
         return { text: data.text };
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error calling backend API:', error);
         throw error;
       }
